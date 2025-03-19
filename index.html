@@ -7,30 +7,39 @@
   </head>
   <body>
     <header>
-      <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col d-flex flex-column">
-            <h1>L'acudit del dia</h1>
+<nav class="navbar navbar-light bg-light">
+  <span class="navbar-brand mb-0 h1">Bon dia!</span>
+</nav>
+
+
+<div class="container-flex">
+  <div class="row justify-content-center text-center">
+    <div class="col d-flex flex-column">
+      <h1 id="title-acudit">L'acudit del dia</h1>
+    </div>
+  </div>
+</div>
+</header>
+<main class="vh-100 d-flex flex-column justify-content-center text-center">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col d-flex flex-column">
+        <div class="card">
+          <div class="card-body shadow">
+        <article>
+          <div id="jokes-container">
+                <p id="acudit">*acudit?*</p>
+                
+              </div>
+              <button class="btn btn-primary" id="button">
+                Nou acudit, aquest és molt dolent
+              </button>
+            </article>
           </div>
         </div>
       </div>
-      </header>
-      <main class="vh-100 d-flex flex-column justify-content-center text-center">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col d-flex flex-column">
-              <article>
-                <div id="jokes-container">
-                  <p id="acudit">*acudit?*</p>
-
-                </div>
-                <button class="btn btn-primary" id="button">
-                  Nou acudit, aquest és molt dolent
-                </button>
-              </article>
-            </div>
-          </div>
-        </div>
+    </div>
+  </div>
     </main>
     <script type="module" src="/src/main.ts"></script>
   </body>
