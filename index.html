@@ -1,13 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title></title>
   </head>
   <body>
-    <div id="app"></div>
+    <header>
+      <div class="container">
+        <div class="row justify-content-center text-center">
+          <div class="col d-flex flex-column">
+            <h1>L'acudit del dia</h1>
+          </div>
+        </div>
+      </div>
+      </header>
+      <main class="vh-100 d-flex flex-column justify-content-center text-center">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col d-flex flex-column">
+              <article>
+                <div id="jokes-container">
+                  <p id="acudit">*acudit?*</p>
+
+                </div>
+                <button class="btn btn-primary" id="button">
+                  Nou acudit, aquest és molt dolent
+                </button>
+              </article>
+            </div>
+          </div>
+        </div>
+    </main>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

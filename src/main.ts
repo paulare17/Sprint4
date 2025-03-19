@@ -1,25 +1,42 @@
-import './style.css'
-import typescriptLogo from './typescript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.ts'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "./style.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
-  </div>
-`
+const button: HTMLElement | null = document.getElementById("button");
+let jokes: HTMLElement | null = document.getElementById("jokes-container");
 
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
+// const callJoke = () => {
+//   fetch("https://icanhazdadjoke.com/")
+//     .then((resposta) => console.log(resposta.json()))
+//     .then((data) => {
+//       console.log(data)
+//     //   showJoke(data)
+
+//   }
+// )
+// };
+
+// callJoke();
+
+// function showJoke(joke) {
+//   const acudit = document.createElement('acudit')
+//   console.log(joke)
+//   jokes.innerHTML = data.joke;
+// }
+
+async function takeJokes() {
+const acudits = await fetch("https://icanhazdadjoke.com/", {
+  headers: {
+    Accept: "application/json"
+  }
+})
+.then(res => res.json())
+.then(data => {
+  console.log(data.joke)
+  return data.joke
+})
+
+jokes.innerHTML = acudits
+
+}
+
+button.addEventListener('click', takeJokes)
