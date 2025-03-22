@@ -1,64 +1,57 @@
 import "./style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { takeJokes } from "./apigestor";
 
 const button: HTMLElement | null = document.getElementById("button");
 let jokes: HTMLElement | null = document.getElementById("jokes-container");
 
-const reportJokes: { joke: string; score: number; date: string }[] = [];
+const reportJokes: { joke: string; score: number | null; date: string }[] = [];
 
-
-
-async function takeJokes() {
-  return fetch("https://icanhazdadjoke.com/", {
-    headers: {
-      Accept: "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data);
-      console.log(data.joke);
-      if (jokes) jokes.innerHTML = data.joke;
-      return data.joke
-    });
-  }
-  
-
+const score1: HTMLElement | null = document.getElementById("score1");
+const score2: HTMLElement | null = document.getElementById("score2");
+const score3: HTMLElement | null = document.getElementById("score3");
 
 async function captureJokes() {
-  const time = new Date().toISOString()
-  const acudit = await takeJokes()
-  reportJokes.push({joke: acudit, date: time})
-  console.log(reportJokes)
+  const time = new Date().toISOString();
+  const acudit = await takeJokes();
+  reportJokes.push({ joke: acudit, score: null, date: time });
+  console.log(reportJokes);
 }
 
-takeJokes();
-captureJokes();
+async function printJokes() {
+  const printAcudit = await takeJokes();
+  console.log(printAcudit);
+  if (jokes) jokes.innerHTML = printAcudit;
+}
 
+async function scoreJokes(puntuacio: number) {
+  await takeJokes();
 
-button.addEventListener("click", () => {
-  
-  // const horaData = new Date().toISOString();
-  // reportJokes.push(date.horaData)
+  reportJokes[reportJokes.length - 1].score = puntuacio;
+  console.log(reportJokes);
+}
 
+window.addEventListener("load", () => {
   takeJokes();
   captureJokes();
-}) 
+  printJokes();
+});
 
-//dubte: això següent ha d'anar al mateix document tal i com ho estic fent ara?????
+button.addEventListener("click", () => {
+  takeJokes();
+  captureJokes();
+  printJokes();
+});
 
-
-const score1 = document.getElementById("score1")
-const score2 = document.getElementById("score2")
-const score3 = document.getElementById("score3") 
-
-
-
-
-
-
-
-
+score1.addEventListener("click", () => {
+  scoreJokes(1);
+});
+score2.addEventListener("click", () => {
+  scoreJokes(2);
+});
+score3.addEventListener("click", () => {
+  scoreJokes(3);
+});
 
 /* API de xistes a contemplar:
 https://sv443.net/jokeapi/v2/
