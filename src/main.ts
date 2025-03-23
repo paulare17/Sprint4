@@ -1,6 +1,7 @@
-import "./style.css";
+import "./style.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { takeJokes } from "./apigestor";
+import { obtainWeather } from "./apigestor";
 
 const button: HTMLElement | null = document.getElementById("button");
 let jokes: HTMLElement | null = document.getElementById("jokes-container");
@@ -31,10 +32,12 @@ async function scoreJokes(puntuacio: number) {
   console.log(reportJokes);
 }
 
+
 window.addEventListener("load", () => {
   takeJokes();
   captureJokes();
   printJokes();
+  obtainWeather();
 });
 
 button.addEventListener("click", () => {

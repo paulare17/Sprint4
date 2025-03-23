@@ -1,10 +1,15 @@
+$primary: #ca448c;
+$secondary: #7b7df4;
+
+
 * {
 padding: 0;
 margin: 0;
 }
 
+
 body {
-  background-image: url('../public/6202258.jpg'); /* Textura */
+  background-image: url('/6202258.jpg'); /* Textura */
 }
 
 :root {
@@ -28,6 +33,15 @@ body {
     font-size: 32px;
     margin-left: 4rem;
   }
+}
+
+#weather {
+  background-color: $primary;
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 5px solid $secondary;
+  text-align: center;
+  color: white;
 }
 
 .card-body{
