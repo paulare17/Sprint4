@@ -16,21 +16,17 @@ const score3: HTMLElement | null = document.getElementById("score3");
 let apiAltern = 0;
 const apis = [takeJokes, takeJokesChuck];
 
-async function captureJokes() {
+async function capturePrintJokes() {
   const time = new Date().toISOString();
   const acudit = await apis[apiAltern]();;
 
   reportJokes.push({ joke: acudit, score: null, date: time });
   console.log(reportJokes);
 
+  if (jokes) jokes.innerHTML = acudit;
   apiAltern = (apiAltern + 1) % apis.length;
 }
 
-async function printJokes() {
-  const printAcudit = await apis[apiAltern]();;
-  console.log(printAcudit);
-  if (jokes) jokes.innerHTML = printAcudit;
-}
 
 async function scoreJokes(puntuacio: number) {
   await await apis[apiAltern]();;
@@ -42,15 +38,13 @@ async function scoreJokes(puntuacio: number) {
 
 window.addEventListener("load", () => {
   takeJokes();
-  captureJokes();
-  printJokes();
+  capturePrintJokes();
   obtainWeather();
 });
 
 button?.addEventListener("click", () => {
   takeJokes();
-  captureJokes();
-  printJokes();
+  capturePrintJokes();
 });
 
 score1?.addEventListener("click", () => {
