@@ -23,7 +23,7 @@ export async function obtainWeather() {
 
   console.log(dades);
   if (showWeather)
-    showWeather.innerHTML = `La temperatura a Barcelona és ${dades.current.temp_c}ºC i la humitat és del ${dades.current.humidity}%. <br>
+    showWeather.innerHTML = `The temperature un Barcelona is ${dades.current.temp_c}ºC and the humidity is ${dades.current.humidity}%. <br>
     ${dades.current.condition.text}.`;
 }
 

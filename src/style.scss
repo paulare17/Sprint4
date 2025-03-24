@@ -9,7 +9,7 @@ margin: 0;
 
 
 body {
-  background-image: url('/6202258.jpg'); /* Textura */
+  background-image:  linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('/6202258.jpg'); /* Textura i transparència de tal*/
 }
 
 :root {
@@ -29,34 +29,94 @@ body {
 
 .navbar {
   background-color: transparent;
+  display: flex; 
   .navbar-brand {
     font-size: 32px;
     margin-left: 4rem;
+    color: $secondary;
+    &:hover {
+      color: $primary;
+    }
+  }
+  @media (max-width: 768px) {
+    justify-content: center !important;
   }
 }
 
-#weather {
-  background-color: $primary;
-  padding: 1rem;
-  border-radius: 1rem;
-  border: 5px solid $secondary;
-  text-align: center;
-  color: white;
+  
+  #weather {
+    text-align: center;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 5px solid $secondary;
+    text-align: center;
+    color: black;
+
+  }
+
+.card {
+  border: none !important;
+  border-radius: 16px !important;
 }
-
 .card-body{
- border-radius: 16px;
-
+  border: 5px solid $secondary;
+  border-radius: 16px;
 }
 
 #title-acudit{
+  
+  padding: 2rem;
+  padding-bottom: 6rem;
   font-weight: bold;
   font-size: 48px;
-  color: white;
+  color: $primary ;
   -webkit-text-stroke: 1.5px #000000; /*posa "reborde" a la lletra*/
 }
 
 #jokes-container {
+  
   margin: 1rem;
   font-size: 24px;
+}
+
+#score1, #score2, #score3 {
+  transition: background-color 0.4s ease, transform 0.3s ease;
+  &:active {
+    transform: scale(1.4);
+  }
+}
+
+#score1 {
+  background-color: red;
+  &:hover {
+    background-color: rgb(255, 138, 138);
+  }
+ 
+}
+#score2 {
+  background-color: orange;
+  &:hover {
+    background-color: #ffcb6c;
+  }
+ 
+}
+#score3 {
+  background-color: rgb(4, 228, 4);
+  &:hover {
+    background-color: rgb(120, 255, 120);
+  }
+ 
+}
+
+#button {
+  background-color: $primary;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transició suau */
+  &:hover {
+    background-color: $secondary;
+  }
+  &:active {
+    transform: scale(0.6);
+  }
 }
